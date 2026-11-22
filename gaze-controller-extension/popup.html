@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Eye-Gaze Controller</title>
+<style>
+:root{--ink:#14232E;--muted:#4B5C69;--teal:#0B6E6E;--line:#D5DCE2;--bg:#fff}
+body{margin:0;width:330px;font:16px/1.45 "Atkinson Hyperlegible",system-ui,sans-serif;color:var(--ink);background:var(--bg);padding:16px}
+h1{font-size:18px;margin:0 0 12px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:12px 0}
+label{font-weight:700}
+small{color:var(--muted);display:block;font-weight:400}
+input[type=range]{width:100%;accent-color:var(--teal)}
+select,button{font:inherit;padding:10px 12px;border-radius:10px;border:2px solid var(--teal);min-height:44px}
+button{background:var(--teal);color:#fff;font-weight:700;cursor:pointer;width:100%}
+button.alt{background:#fff;color:var(--teal);margin-top:8px}
+.big{transform:scale(1.35);margin-right:6px}
+:focus-visible{outline:3px solid #E39B0B;outline-offset:2px}
+</style></head><body>
+<h1>Eye-Gaze Controller</h1>
+<div class="row"><label for="enabled">Gaze control on</label><input type="checkbox" id="enabled" class="big"></div>
+<div class="row"><label for="source">Gaze source</label>
+<select id="source"><option value="pointer">Pointer (test)</option><option value="webcam">Webcam</option></select></div>
+<label>Dwell time: <span id="dwellV"></span> s <input type="range" id="dwell" min="500" max="3000" step="100"></label>
+<label>Smoothing <input type="range" id="smooth" min="0" max="90" step="5"></label>
+<label>Scroll speed <input type="range" id="scrollSpeed" min="2" max="16" step="1"></label>
+<label>Cursor size <input type="range" id="cursor" min="24" max="80" step="2"></label>
+<div class="row"><label for="snap">Snap to nearest button/link</label><input type="checkbox" id="snap" class="big"></div>
+<button id="cal">Recalibrate (webcam)</button>
+<button id="pause" class="alt">Pause / resume (Alt+Shift+G)</button>
+<script src="popup.js"></script></body></html>
